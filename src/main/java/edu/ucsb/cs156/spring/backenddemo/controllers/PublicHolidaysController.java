@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Tag(name="Public Holiday info")
 @Slf4j
 @RestController
-@RequestMapping("/api/publicholidays/get")
+@RequestMapping("/api/publicholidays")
 public class PublicHolidaysController {
     ObjectMapper mapper = new ObjectMapper();
 
