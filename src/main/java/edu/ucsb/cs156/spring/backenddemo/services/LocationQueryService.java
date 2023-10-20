@@ -11,9 +11,14 @@ import lombok.extern.slf4j.Slf4j;
 
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestTemplate;
+//import org.springframework.web.client.RestTemplate;
 
 
 @Slf4j 
@@ -31,14 +36,17 @@ public class LocationQueryService {
     public String getJSON(String location) throws HttpClientErrorException {
         
         log.info("location={}", location);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> entity = new HttpEntity<>(headers);
 
         Map<String, String> uriVariables = Map.of("location", location);
-        
 
+        ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class,
+        uriVariables);
 
-
-
-        
-        return "";
+        return re.getBody();
     }
 }
