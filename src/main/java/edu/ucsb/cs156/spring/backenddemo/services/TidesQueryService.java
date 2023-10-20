@@ -16,8 +16,6 @@ import org.springframework.web.client.HttpClientErrorException;
 
 @Service
 public class TidesQueryService {
-
-    ObjectMapper mapper = new ObjectMapper();
     
     private final RestTemplate restTemplate;
 
