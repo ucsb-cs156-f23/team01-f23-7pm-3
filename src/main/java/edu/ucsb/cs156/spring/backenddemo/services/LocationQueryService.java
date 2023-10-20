@@ -25,6 +25,8 @@ import org.springframework.web.client.HttpClientErrorException;
 @Service
 public class LocationQueryService {
 
+    ObjectMapper mapper = new ObjectMapper();
+
     private final RestTemplate restTemplate;
 
     public LocationQueryService(RestTemplateBuilder restTemplateBuilder) {
