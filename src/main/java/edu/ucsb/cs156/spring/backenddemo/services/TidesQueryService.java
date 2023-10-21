@@ -22,7 +22,6 @@ import org.springframework.web.client.HttpClientErrorException;
 @Service
 public class TidesQueryService {
     
- main
     private final RestTemplate restTemplate;
 
     public TidesQueryService(RestTemplateBuilder restTemplateBuilder) {
